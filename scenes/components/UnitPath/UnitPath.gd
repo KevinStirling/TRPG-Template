@@ -8,7 +8,7 @@ var _pathfinder: PathFinder
 var current_path := PackedVector2Array()
 
 func initialize(walkable_cells: Array) -> void:
-	_pathfinder = PathFinder.new(grid, walkable_cells)
+	_pathfinder = PathFinder.new(grid)
 
 func draw(cell_start: Vector2, cell_end: Vector2) -> void:
 	clear_layer(1)

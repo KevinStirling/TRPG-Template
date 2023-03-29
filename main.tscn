@@ -1,8 +1,7 @@
-[gd_scene load_steps=12 format=3 uid="uid://pkyl27hhew2r"]
+[gd_scene load_steps=11 format=3 uid="uid://pkyl27hhew2r"]
 
 [ext_resource type="Texture2D" uid="uid://bcgm754qqdvnr" path="res://scenes/Background/grasslands.png" id="1_fikod"]
 [ext_resource type="PackedScene" uid="uid://itfcpm77u6we" path="res://scenes/components/Unit/Unit.tscn" id="2_0hpix"]
-[ext_resource type="Script" path="res://src/UnitOverlay.gd" id="2_hct1d"]
 [ext_resource type="Script" path="res://src/GameBoard.gd" id="2_m2y7v"]
 [ext_resource type="PackedScene" uid="uid://bb5snevkd7k8n" path="res://scenes/components/Cursor/Cursor.tscn" id="3_aqkq1"]
 [ext_resource type="PackedScene" uid="uid://dehvxoecc36hf" path="res://scenes/components/UnitPath/UnitPath.tscn" id="4_yur3p"]
@@ -53,19 +52,20 @@ tile_set = SubResource("TileSet_maeob")
 format = 2
 layer_0/name = "Map"
 layer_0/tile_data = PackedInt32Array(0, 0, 0, 65535, 0, 0, -1, 0, 0, -65536, 0, 0, 1, 0, 0, 2, 262144, 0, 65538, 0, 0, 65537, 0, 0, 65536, 0, 0, -65535, 0, 0, -65534, 0, 0, 3, 0, 0, 65539, 0, 0, 131074, 0, 0, 131073, 0, 0, 131072, 0, 0, 131071, 0, 0, -65533, 0, 0, 131075, 0, 0, -65532, 0, 0, -65531, 0, 0, 5, 0, 0, 65541, 0, 0, 131077, 0, 0, 131076, 0, 0, 196607, 0, 0, -65530, 0, 0, -65529, 0, 0, -65528, 0, 0, -65527, 0, 0, -65526, 0, 0, -65525, 0, 0, 11, 0, 0, 12, 0, 0, 13, 0, 0, 14, 0, 0, -65522, 0, 0, -65523, 0, 0, -65524, 0, 0, 4, 0, 0, 6, 0, 0, 7, 0, 0, 8, 0, 0, 65544, 0, 0, 65545, 0, 0, 65546, 0, 0, 65543, 0, 0, 65542, 0, 0, 65540, 0, 0, 9, 196608, 0, 10, 0, 0, 131078, 196608, 0, 196614, 327680, 1, 262143, 0, 0, 327679, 0, 0, 262144, 0, 0, 327680, 0, 0, 393216, 0, 0, 458752, 0, 0, 524288, 0, 0, 589823, 0, 0, 524287, 0, 0, 458751, 0, 0, 393215, 196608, 0, 524289, 196608, 0, 524290, 196608, 3, 524291, 0, 0, 524292, 0, 0, 524293, 0, 0, 524294, 0, 0, 524295, 0, 0, 524296, 262144, 0, 524297, 0, 0, 524298, 0, 0, 524299, 0, 0, 524300, 0, 0, 524301, 0, 0, 524302, 0, 0, 458766, 0, 0, 393230, 0, 0, 327694, 0, 0, 262158, 0, 0, 196622, 0, 0, 131086, 0, 0, 65550, 0, 0, 65549, 0, 0, 65548, 131072, 0, 65547, 0, 0, 196608, 0, 0, 196609, 0, 0, 196610, 131072, 0, 196611, 0, 0, 196612, 0, 0, 196613, 262144, 2, 196615, 327680, 1, 196616, 327680, 1, 131081, 0, 0, 131082, 0, 1, 131083, 65536, 1, 131084, 131072, 1, 196620, 131072, 2, 196621, 0, 0, 131085, 0, 0, 131080, 0, 0, 131079, 262144, 0, 262148, 0, 0, 262149, 196608, 2, 262150, 0, 0, 262151, 0, 0, 262152, 0, 0, 262153, 0, 0, 262154, 0, 3, 262155, 65536, 3, 196619, 65536, 2, 196618, 0, 2, 262157, 0, 0, 262147, 0, 0, 262146, 0, 0, 262145, 0, 0, 393217, 0, 0, 393218, 0, 0, 458755, 327680, 1, 393219, 0, 0, 393220, 0, 0, 393221, 196608, 2, 393222, 0, 0, 393223, 0, 0, 393224, 0, 0, 393225, 0, 0, 393226, 0, 0, 393227, 131072, 0, 393229, 0, 0, 327693, 0, 0, 327691, 0, 0, 327690, 196608, 0, 327689, 0, 0, 327688, 0, 0, 327687, 0, 0, 327686, 0, 0, 327685, 196608, 2, 327684, 0, 0, 327683, 0, 0, 327682, 0, 0, 327681, 0, 0, 458754, 262144, 2, 458756, 327680, 1, 458757, 327680, 3, 458758, 0, 0, 458759, 0, 0, 458760, 0, 0, 458761, 0, 0, 458762, 0, 0, 458763, 0, 0, 458764, 0, 0, 458765, 0, 0, 458753, 0, 0, 262156, 131072, 3, 327692, 0, 0, 393228, 0, 0, 196617, 393216, 1)
-layer_1/name = "UnitOverlay"
-layer_1/enabled = true
-layer_1/modulate = Color(0, 0.752941, 0.443137, 0.545098)
-layer_1/y_sort_enabled = false
-layer_1/y_sort_origin = 0
-layer_1/z_index = 0
-layer_1/tile_data = PackedInt32Array()
-script = ExtResource("2_hct1d")
 
 [node name="GameBoard" type="Node2D" parent="."]
 script = ExtResource("2_m2y7v")
 
 [node name="UnitPath" parent="GameBoard" instance=ExtResource("4_yur3p")]
+layer_0/name = "UnitOverlay"
+layer_0/modulate = Color(0, 0.752941, 0.443137, 0.545098)
+layer_1/name = "UnitPath"
+layer_1/enabled = true
+layer_1/modulate = Color(1, 1, 1, 1)
+layer_1/y_sort_enabled = false
+layer_1/y_sort_origin = 0
+layer_1/z_index = 0
+layer_1/tile_data = PackedInt32Array()
 
 [node name="Unit" parent="GameBoard" instance=ExtResource("2_0hpix")]
 position = Vector2(160, 240)

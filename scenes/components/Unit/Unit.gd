@@ -61,14 +61,6 @@ func _ready():
 	
 	if not Engine.is_editor_hint():
 		curve = Curve2D.new()
-		
-#	var points := [
-#		Vector2(2, 2),
-#		Vector2(2, 5),
-#		Vector2(8, 5),
-#		Vector2(8, 7),
-#	]
-#	walk_along(PackedVector2Array(points))
 
 func _process(delta):
 	_path_follow.progress += move_speed * delta

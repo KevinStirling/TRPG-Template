@@ -5,13 +5,6 @@ const DIRECTIONS = [Vector2.LEFT, Vector2.RIGHT, Vector2.UP, Vector2.DOWN]
 
 @export var grid : Resource = preload("res://scenes/components/Grid/Grid.tres")
 
-# not a fan of accessing the unit overlay this way but didnt want to make 
-# a new tilemap for it in godot 4, would rather use a different layer.
-# seek an alternative to this
-@onready var _unit_overlay: UnitOverlay = $"../Map"
-# this is the godot 3 way to do it, what i was trying to avoid with unit overlay
-# eventually it would be nice to have them just as seperate layers
-# but need to figure out how to rearrange the code. maybe a resource for pathing?
 @onready var _unit_path : UnitPath = $UnitPath
 
 var _units := {}
@@ -73,12 +66,12 @@ func _select_unit(cell: Vector2) -> void:
 	_active_unit = _units[cell]
 	_active_unit.is_selected = true
 	_walkable_cells = get_walkable_cells(_active_unit)
-	_unit_overlay.draw(_walkable_cells)
+	_unit_path.draw_walkable(_walkable_cells)
 	_unit_path.initialize(_walkable_cells)
 	
 func _deselect_active_unit() -> void:
 	_active_unit.is_selected = false
-	_unit_overlay.clear_layer(1)
+	_unit_path.clear_layer(1)
 	_unit_path.stop()
 	
 func _clear_active_unit() -> void:

@@ -54,7 +54,7 @@ var _is_walking := false :
 		set_process(_is_walking)
 
 
-func _ready():
+func _ready() -> void:
 	set_process(false)
 	self.cell = grid.calculate_grid_coordinates(position)
 	position = grid.calculate_map_position(cell)
@@ -62,7 +62,7 @@ func _ready():
 	if not Engine.is_editor_hint():
 		curve = Curve2D.new()
 
-func _process(delta):
+func _process(delta) -> void:
 	_path_follow.progress += move_speed * delta
 	if _path_follow.progress_ratio >= 1.0:
 		self._is_walking = false

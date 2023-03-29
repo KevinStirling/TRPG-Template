@@ -6,9 +6,13 @@ class_name Grid
 
 var _half_cell_size = cell_size / 2
 
+# Can calculate_map_position be replaced be map_to_local and local_to_map?
+
+# calculate_map_position will return the position in pixels for the unit 
 func calculate_map_position( grid_position : Vector2) -> Vector2:
 	return grid_position * cell_size +_half_cell_size
 
+# calculate_grid_coordinates will convert a map position into a grid coordinate
 func calculate_grid_coordinates( map_position : Vector2) -> Vector2:
 	return (map_position / cell_size).floor()
 

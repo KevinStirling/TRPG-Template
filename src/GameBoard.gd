@@ -67,7 +67,7 @@ func _select_unit(cell: Vector2) -> void:
 	_active_unit.is_selected = true
 	_walkable_cells = get_walkable_cells(_active_unit)
 	_unit_path.draw_walkable(_walkable_cells)
-	_unit_path.initialize(_walkable_cells)
+	_unit_path.initialize()
 	
 func _deselect_active_unit() -> void:
 	_active_unit.is_selected = false

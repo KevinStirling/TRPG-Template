@@ -67,11 +67,11 @@ layer_1/y_sort_origin = 0
 layer_1/z_index = 0
 layer_1/tile_data = PackedInt32Array()
 
+[node name="Cursor" parent="GameBoard" instance=ExtResource("3_aqkq1")]
+
 [node name="Unit" parent="GameBoard" instance=ExtResource("2_0hpix")]
 position = Vector2(160, 240)
 skin = ExtResource("6_rfrmd")
-
-[node name="Cursor" parent="GameBoard" instance=ExtResource("3_aqkq1")]
 
 [node name="Unit2" parent="GameBoard" instance=ExtResource("2_0hpix")]
 position = Vector2(320, 160)

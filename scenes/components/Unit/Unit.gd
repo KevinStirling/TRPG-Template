@@ -8,6 +8,9 @@ signal walk_finished
 @onready var _anim_player := $AnimationPlayer
 @onready var _path_follow := $PathFollow2D
 
+# dont love this but there will always be a unit path node for a unit sooo shrug
+@onready var _unit_path := $"../UnitPath"
+
 @export var grid: Resource = preload("res://scenes/components/Grid/Grid.tres")
 @export var move_range := 6
 @export var skin : Texture:
@@ -56,8 +59,8 @@ var _is_walking := false :
 
 func _ready() -> void:
 	set_process(false)
-	self.cell = grid.calculate_grid_coordinates(position)
-	position = grid.calculate_map_position(cell)
+	self.cell = _unit_path.local_to_map(position)
+	position = _unit_path.map_to_local(cell)
 	
 	if not Engine.is_editor_hint():
 		curve = Curve2D.new()
@@ -67,7 +70,7 @@ func _process(delta) -> void:
 	if _path_follow.progress_ratio >= 1.0:
 		self._is_walking = false
 		_path_follow.progress = 0.0
-		position = grid.calculate_map_position(cell)
+		position = _unit_path.map_to_local(cell)
 		curve.clear_points()
 		emit_signal("walk_finished")
 		
@@ -76,6 +79,6 @@ func walk_along(path: PackedVector2Array) -> void:
 		return
 	curve.add_point(Vector2.ZERO)
 	for point in path:
-		curve.add_point(grid.calculate_map_position(point) - position)
+		curve.add_point(_unit_path.map_to_local(point) - position)
 		cell = path[-1]
 		self._is_walking = true

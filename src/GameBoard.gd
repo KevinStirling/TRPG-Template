@@ -28,7 +28,7 @@ func _reinitialize() -> void:
 		_units[unit.cell] = unit
 		
 func get_walkable_cells(unit: Unit) -> Array :
-	return _flood_fill(unit.cell, unit.move_range)
+	return _flood_fill(_unit_path.local_to_map(unit.position), unit.move_range)
 	
 func _flood_fill(cell: Vector2, max_distance: int) -> Array:
 	var array := []
@@ -57,6 +57,7 @@ func _flood_fill(cell: Vector2, max_distance: int) -> Array:
 				continue
 			
 			stack.append(coordinates)
+	# print(array)
 	return array
 
 func _select_unit(cell: Vector2) -> void:

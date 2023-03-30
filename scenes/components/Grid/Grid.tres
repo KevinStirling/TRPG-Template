@@ -1,8 +1,9 @@
-[gd_resource type="Resource" script_class="Grid" load_steps=2 format=3]
+[gd_resource type="Resource" script_class="Grid" load_steps=2 format=3 uid="uid://bbiv3kdcfh0yb"]
 
 [ext_resource type="Script" path="res://scenes/components/Grid/Grid.gd" id="1_8k2i1"]
 
 [resource]
 script = ExtResource("1_8k2i1")
-size = Vector2(20, 20)
-cell_size = Vector2(80, 80)
+size = Vector2(20, 40)
+cell_size = Vector2(80, 40)
+metadata/_editor_prop_ptr_tilemap = NodePath("UnitPath")

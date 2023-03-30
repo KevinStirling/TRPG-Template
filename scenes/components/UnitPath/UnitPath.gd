@@ -24,3 +24,7 @@ func stop() -> void:
 	_pathfinder = null
 	clear()
 	
+
+func print_me():
+	print(map_to_local(Vector2i(1,1)))
+	return map_to_local(Vector2i(1,1))

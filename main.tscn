@@ -77,18 +77,19 @@ script = ExtResource("2_m2y7v")
 [node name="UnitPath" parent="GameBoard" instance=ExtResource("4_yur3p")]
 
 [node name="Cursor" parent="GameBoard" instance=ExtResource("3_aqkq1")]
+position = Vector2(40, 20)
 
 [node name="Unit" parent="GameBoard" instance=ExtResource("2_0hpix")]
-position = Vector2(160, 240)
+position = Vector2(40, 20)
 skin = ExtResource("6_rfrmd")
 
 [node name="Unit2" parent="GameBoard" instance=ExtResource("2_0hpix")]
-position = Vector2(320, 160)
+position = Vector2(40, 20)
 skin = ExtResource("8_thdnj")
 skin_offset = Vector2(0, -5)
 
 [node name="Unit3" parent="GameBoard" instance=ExtResource("2_0hpix")]
-position = Vector2(320, 360)
+position = Vector2(320, 240)
 skin = ExtResource("9_l8ki5")
 skin_offset = Vector2(0, -10)
 

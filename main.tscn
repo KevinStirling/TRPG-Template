@@ -34,7 +34,7 @@ skin_offset = Vector2(0, -5)
 position = Vector2(1120, 0)
 move_range = 4
 skin = ExtResource("9_l8ki5")
-skin_offset = Vector2(0, -10)
+skin_offset = Vector2(0, -45)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(1120, 0)

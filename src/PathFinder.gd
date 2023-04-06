@@ -9,6 +9,7 @@ var _astar := AStarGrid2D.new()
 func _init(grid: Grid) -> void:
 	_grid = grid
 	_astar.size = grid.size
+	_astar.default_compute_heuristic = AStarGrid2D.HEURISTIC_MANHATTAN
 	_astar.diagonal_mode = AStarGrid2D.DIAGONAL_MODE_NEVER
 	_astar.update()
 	

@@ -6,5 +6,7 @@ extends Node2D
 
 func _ready():
 	grid.grid_bounds = tilemap.get_used_cells(0)
-#	grid.size = Vector2i(grid.grid_bounds.max().x - (grid.grid_bounds.min().x -1 ), grid.grid_bounds.max().y - (grid.grid_bounds.min().y -1))
+#	probably can change the function that checks bounds and not
+#	have to add a (1,1) vector
+	grid.size = grid.grid_bounds.max() + Vector2i(1,1)
 	print(grid.size)

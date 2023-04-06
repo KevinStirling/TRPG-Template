@@ -71,6 +71,7 @@ func _process(delta) -> void:
 		self._is_walking = false
 		_path_follow.progress = 0.0
 		position = _unit_path.map_to_local(cell)
+		print(cell)
 		curve.clear_points()
 		emit_signal("walk_finished")
 		

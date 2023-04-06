@@ -22,16 +22,17 @@ script = ExtResource("2_m2y7v")
 position = Vector2(40, 20)
 
 [node name="Unit" parent="GameBoard" instance=ExtResource("2_0hpix")]
-position = Vector2(40, 20)
+position = Vector2(1040, 0)
 skin = ExtResource("6_rfrmd")
+skin_offset = Vector2(0, -35)
 
 [node name="Unit2" parent="GameBoard" instance=ExtResource("2_0hpix")]
 position = Vector2(40, 20)
 skin = ExtResource("8_thdnj")
-skin_offset = Vector2(0, -5)
+skin_offset = Vector2(0, -40)
 
 [node name="Unit3" parent="GameBoard" instance=ExtResource("2_0hpix")]
-position = Vector2(1120, 0)
+position = Vector2(40, 20)
 move_range = 4
 skin = ExtResource("9_l8ki5")
 skin_offset = Vector2(0, -45)

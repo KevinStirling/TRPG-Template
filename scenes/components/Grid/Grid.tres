@@ -4,6 +4,6 @@
 
 [resource]
 script = ExtResource("1_8k2i1")
-size = Vector2(20, 40)
 cell_size = Vector2(80, 40)
+size = Vector2i(30, 30)
 metadata/_editor_prop_ptr_tilemap = NodePath("UnitPath")

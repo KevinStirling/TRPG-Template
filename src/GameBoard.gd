@@ -59,7 +59,6 @@ func _flood_fill(cell: Vector2, max_distance: int) -> Array:
 				continue
 			
 			stack.append(coordinates)
-	# print(array)
 	return array
 
 func _select_unit(cell: Vector2) -> void:

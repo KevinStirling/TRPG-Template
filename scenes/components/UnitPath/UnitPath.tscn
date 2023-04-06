@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://c8jbrt0tmdlty" path="res://assets/arrows.svg" id="1_2l8yb"]
 [ext_resource type="Script" path="res://scenes/components/UnitPath/UnitPath.gd" id="2_1wdl5"]
-[ext_resource type="Texture2D" uid="uid://bph6ngmba62us" path="res://assets/iso_cube.png" id="2_54skh"]
+[ext_resource type="Texture2D" uid="uid://bnygpgpdih68r" path="res://assets/iso_cube2.png" id="2_3iw2r"]
 [ext_resource type="Resource" uid="uid://bbiv3kdcfh0yb" path="res://scenes/components/Grid/Grid.tres" id="3_51ea6"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lib5r"]
@@ -43,13 +43,14 @@ texture_region_size = Vector2i(80, 80)
 3:2/0/terrain = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_y8mjw"]
-texture = ExtResource("2_54skh")
-texture_region_size = Vector2i(80, 80)
+texture = ExtResource("2_3iw2r")
+texture_region_size = Vector2i(80, 120)
 0:0/0 = 0
-0:0/0/texture_origin = Vector2i(0, -20)
+0:0/0/texture_origin = Vector2i(0, 7)
 
 [sub_resource type="TileSet" id="TileSet_hsot6"]
 tile_shape = 1
+tile_layout = 4
 tile_size = Vector2i(80, 40)
 terrain_set_0/mode = 0
 terrain_set_0/terrain_0/name = "Arrow"

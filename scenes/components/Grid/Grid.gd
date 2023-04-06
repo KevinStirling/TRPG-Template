@@ -1,8 +1,10 @@
 extends Resource
 class_name Grid
 
-@export var size := Vector2(20, 20)
 @export var cell_size := Vector2(80, 80)
+
+var size := Vector2i(30, 30)
+var grid_bounds : Array[Vector2i]
 
 var _half_cell_size = cell_size / 2
 
@@ -14,9 +16,9 @@ func calculate_map_position( grid_position : Vector2) -> Vector2:
 func calculate_grid_coordinates( map_position : Vector2) -> Vector2:
 	return (map_position / cell_size).floor()
 
-func is_within_bounds(cell_coordinates: Vector2) -> bool:
-	var out := cell_coordinates.x >= 0 and cell_coordinates.x < size.x
-	return out and cell_coordinates.y >= 0 and cell_coordinates.y < size.y
+func is_within_bounds(cell_coordinates: Vector2i) -> bool:
+	var out : int = cell_coordinates.x >= grid_bounds.min().x and cell_coordinates.x < grid_bounds.max().x
+	return out and cell_coordinates.y >= grid_bounds.min().y and cell_coordinates.y < grid_bounds.max().y
 	
 func clamp(grid_position: Vector2) -> Vector2:
 	var out := grid_position

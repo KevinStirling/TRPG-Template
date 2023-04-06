@@ -14,7 +14,6 @@ func _init(grid: Grid) -> void:
 	
 func calculate_point_path(start: Vector2i, end: Vector2i) -> PackedVector2Array:
 	if _astar.is_in_bounds(end.x, end.y):
-		# print(_astar.get_point_path(start,end))
 		return _astar.get_point_path(start, end)
 	else:
 		return PackedVector2Array()

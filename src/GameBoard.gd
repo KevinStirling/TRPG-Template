@@ -3,6 +3,8 @@ class_name GameBoard
 
 const DIRECTIONS = [Vector2.LEFT, Vector2.RIGHT, Vector2.UP, Vector2.DOWN]
 
+#const DIRECTIONS = [Vector2(1,1), Vector2(-1,-1), Vector2(1,-1), Vector2(-1, 1)]
+
 @export var grid : Resource = preload("res://scenes/components/Grid/Grid.tres")
 
 @onready var _unit_path : UnitPath = $UnitPath

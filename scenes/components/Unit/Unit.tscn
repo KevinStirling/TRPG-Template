@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://itfcpm77u6we"]
+[gd_scene load_steps=11 format=3 uid="uid://itfcpm77u6we"]
 
 [ext_resource type="Script" path="res://scenes/components/Unit/Unit.gd" id="1_7mf0w"]
 [ext_resource type="Texture2D" uid="uid://bs41tnjakr1iw" path="res://assets/unit_shadow.svg" id="2_mstlf"]
+[ext_resource type="Texture2D" uid="uid://hrkv0shcmlc5" path="res://assets/iso_cube2_overlay.png" id="3_64lc8"]
 
 [sub_resource type="Animation" id="Animation_hymqh"]
 length = 0.001
@@ -57,6 +58,22 @@ _data = {
 "selected": SubResource("Animation_c4eyo")
 }
 
+[sub_resource type="TileMapPattern" id="TileMapPattern_0c2gx"]
+tile_data = PackedInt32Array(196608, 0, 0, 196609, 0, 0, 196610, 0, 0, 3, 0, 0, 65539, 0, 0, 131075, 0, 0, 196611, 0, 0, 262147, 0, 0, 327683, 0, 0, 393219, 0, 0, 196612, 0, 0, 196613, 0, 0, 196614, 0, 0)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hp2ew"]
+texture = ExtResource("3_64lc8")
+texture_region_size = Vector2i(80, 120)
+0:0/0 = 0
+0:0/0/texture_origin = Vector2i(0, 7)
+
+[sub_resource type="TileSet" id="TileSet_jiirs"]
+tile_shape = 1
+tile_layout = 4
+tile_size = Vector2i(80, 40)
+sources/0 = SubResource("TileSetAtlasSource_hp2ew")
+pattern_0 = SubResource("TileMapPattern_0c2gx")
+
 [node name="Unit" type="Path2D"]
 script = ExtResource("1_7mf0w")
 
@@ -65,6 +82,7 @@ rotates = false
 loop = false
 
 [node name="Shadow" type="Sprite2D" parent="PathFollow2D"]
+visible = false
 modulate = Color(0.180392, 0.180392, 0.180392, 1)
 texture = ExtResource("2_mstlf")
 
@@ -75,3 +93,22 @@ scale = Vector2(0.25, 0.25)
 libraries = {
 "": SubResource("AnimationLibrary_shw02")
 }
+
+[node name="MovePattern" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_jiirs")
+format = 2
+layer_0/name = "Empty"
+layer_1/name = "Plus"
+layer_1/enabled = false
+layer_1/modulate = Color(1, 1, 1, 1)
+layer_1/y_sort_enabled = false
+layer_1/y_sort_origin = 0
+layer_1/z_index = 0
+layer_1/tile_data = PackedInt32Array(-65536, 0, 0, -1, 0, 0, -2, 0, 0, -3, 0, 0, -4, 0, 0, -65535, 0, 0, -65534, 0, 0, -65533, 0, 0, -65532, 0, 0, 0, 0, 0, 65536, 0, 0, 131072, 0, 0, 196608, 0, 0, -131072, 0, 0, -196608, 0, 0, -262144, 0, 0, -327680, 0, 0)
+layer_2/name = "Diagonals"
+layer_2/enabled = false
+layer_2/modulate = Color(1, 1, 1, 1)
+layer_2/y_sort_enabled = false
+layer_2/y_sort_origin = 0
+layer_2/z_index = 0
+layer_2/tile_data = PackedInt32Array(-65536, 0, 0, 65535, 0, 0, 131070, 0, 0, 196605, 0, 0, -131071, 0, 0, -196606, 0, 0, -262141, 0, 0, 1, 0, 0, -65537, 0, 0, 65538, 0, 0, -131074, 0, 0, 131075, 0, 0, -196611, 0, 0)

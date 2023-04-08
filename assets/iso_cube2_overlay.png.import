@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bph6ngmba62us"
-path="res://.godot/imported/iso_cube.png-b1303ced2e41bfc3ae4594ccbeb5f983.ctex"
+uid="uid://hrkv0shcmlc5"
+path="res://.godot/imported/iso_cube2_overlay.png-764e9c6cbb49ae9aa932ee95e818377e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/iso_cube.png"
-dest_files=["res://.godot/imported/iso_cube.png-b1303ced2e41bfc3ae4594ccbeb5f983.ctex"]
+source_file="res://assets/iso_cube2_overlay.png"
+dest_files=["res://.godot/imported/iso_cube2_overlay.png-764e9c6cbb49ae9aa932ee95e818377e.ctex"]
 
 [params]
 

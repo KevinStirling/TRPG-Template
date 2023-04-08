@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d2gmhonn8bx0j"
-path="res://.godot/imported/bugcat.png-dbd934fa86f7c8fd9fa402cb7877fdf7.ctex"
+uid="uid://bbm0wwk18ctrm"
+path="res://.godot/imported/pyramid_base.png-cbf78cc78a63a794eff0a77905c2cf68.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/bugcat.png"
-dest_files=["res://.godot/imported/bugcat.png-dbd934fa86f7c8fd9fa402cb7877fdf7.ctex"]
+source_file="res://assets/pyramid_base.png"
+dest_files=["res://.godot/imported/pyramid_base.png-cbf78cc78a63a794eff0a77905c2cf68.ctex"]
 
 [params]
 

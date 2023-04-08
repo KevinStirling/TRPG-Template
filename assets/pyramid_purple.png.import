@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bu5k2j1hvituk"
-path="res://.godot/imported/menu_selection_arrow.png-77261700b2b1116e2f8a9f4e9fada187.ctex"
+uid="uid://cy1ejwi3uwia6"
+path="res://.godot/imported/pyramid_purple.png-3369c681f984bd448029b3d34c01fa25.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/menu_selection_arrow.png"
-dest_files=["res://.godot/imported/menu_selection_arrow.png-77261700b2b1116e2f8a9f4e9fada187.ctex"]
+source_file="res://assets/pyramid_purple.png"
+dest_files=["res://.godot/imported/pyramid_purple.png-3369c681f984bd448029b3d34c01fa25.ctex"]
 
 [params]
 

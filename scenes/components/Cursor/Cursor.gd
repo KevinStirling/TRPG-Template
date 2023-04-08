@@ -12,19 +12,18 @@ signal moved(new_cell)
 
 @onready var _timer := $Timer
 
-var cell := Vector2.ZERO :
+var cell := Vector2i.ZERO :
 	get:
 		return cell
 	set(value):
-		var new_cell: Vector2 = value
-		if new_cell.is_equal_approx(cell):
+		var new_cell: Vector2i = value
+		if new_cell == cell:
 			return
 		cell = new_cell
 		position = _unit_path.map_to_local(cell)
 		emit_signal("moved", cell)
 		_timer.start()
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
 	_timer.wait_time = ui_cooldown
 	position = _unit_path.map_to_local(cell)
@@ -45,15 +44,15 @@ func _unhandled_input(event: InputEvent):
 		return
 	
 	if event.is_action("ui_right"):
-		self.cell += Vector2.RIGHT
+		self.cell += Vector2i.RIGHT
 	elif event.is_action("ui_up"):
-		self.cell += Vector2.UP
+		self.cell += Vector2i.UP
 	elif event.is_action("ui_left"):
-		self.cell += Vector2.LEFT
+		self.cell += Vector2i.LEFT
 	elif event.is_action("ui_down"):
-		self.cell += Vector2.DOWN
+		self.cell += Vector2i.DOWN
 	
-# Draws outline of grid square cursor is currently over
 func _draw():
 	draw_rect(Rect2(-grid.cell_size / 2, grid.cell_size), Color.ALICE_BLUE, false, 2.0)
+	var a = PackedVector2Array()
 

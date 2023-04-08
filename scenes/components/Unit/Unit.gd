@@ -10,6 +10,7 @@ signal walk_finished
 
 # dont love this but there will always be a unit path node for a unit sooo shrug
 @onready var _unit_path := $"../UnitPath"
+@onready var _move_pattern_map := $MovePattern
 
 @export var grid: Resource = preload("res://scenes/components/Grid/Grid.tres")
 @export var move_range := 6
@@ -30,6 +31,12 @@ signal walk_finished
 		if not _sprite:
 			await self.ready
 		_sprite.position = value
+
+@export var preset_move_pattern : int :
+	get: 
+		return preset_move_pattern
+	set(value):
+		preset_move_pattern = value
 
 @export var move_speed := 600.0
 
@@ -56,11 +63,18 @@ var _is_walking := false :
 		_is_walking = value
 		set_process(_is_walking)
 
+var _move_pattern : Array[Vector2]
+#var _move_pattern_list : Dictionary[String]
 
 func _ready() -> void:
 	set_process(false)
 	self.cell = _unit_path.local_to_map(position)
 	position = _unit_path.map_to_local(cell)
+	
+#	for i in _move_pattern_map.get_layers_count():
+#		_move_pattern_list
+	
+	move_pattern_init(_move_pattern_map.get_used_cells(preset_move_pattern))
 	
 	if not Engine.is_editor_hint():
 		curve = Curve2D.new()
@@ -83,3 +97,7 @@ func walk_along(path: PackedVector2Array) -> void:
 		curve.add_point(_unit_path.map_to_local(point) - position)
 		cell = path[-1]
 		self._is_walking = true
+
+func move_pattern_init(pattern : Array[Vector2i]) -> void:
+	for p in pattern:
+		_move_pattern.append(Vector2(int(p.x), int(p.y)))

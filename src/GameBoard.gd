@@ -3,8 +3,6 @@ class_name GameBoard
 
 const DIRECTIONS = [Vector2.LEFT, Vector2.RIGHT, Vector2.UP, Vector2.DOWN]
 
-#const DIRECTIONS = [Vector2(1,1), Vector2(-1,-1), Vector2(1,-1), Vector2(-1, 1)]
-
 @export var grid : Resource = preload("res://scenes/components/Grid/Grid.tres")
 
 @onready var _unit_path : UnitPath = $UnitPath
@@ -36,6 +34,7 @@ func _flood_fill(cell: Vector2, max_distance: int) -> Array:
 	var array := []
 	var stack := [cell]
 	
+	
 	while not stack.is_empty():
 		var current = stack.pop_back()
 		
@@ -43,6 +42,22 @@ func _flood_fill(cell: Vector2, max_distance: int) -> Array:
 			continue
 		if current in array:
 			continue
+		
+# Definitely clean this up later this is kinda gross
+		if !_active_unit._move_pattern.is_empty():
+			for c in _active_unit._move_pattern:
+				if grid.is_within_bounds(c + current + Vector2(0,1)):
+					array.append(c + current + Vector2(0,1))
+			
+			for direction in DIRECTIONS:
+				var coordinates: Vector2 = current + direction
+				if is_occupied(coordinates):
+					continue
+				if coordinates in array:
+					continue
+			
+				stack.append(coordinates)
+				return array
 		
 		var difference: Vector2 = (current - cell).abs()
 		var distance := int(difference.x + difference.y)

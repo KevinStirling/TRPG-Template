@@ -1,52 +1,28 @@
-[gd_scene load_steps=8 format=3 uid="uid://dehvxoecc36hf"]
+[gd_scene load_steps=10 format=3 uid="uid://dehvxoecc36hf"]
 
-[ext_resource type="Texture2D" uid="uid://c8jbrt0tmdlty" path="res://assets/arrows.svg" id="1_2l8yb"]
 [ext_resource type="Script" path="res://scenes/components/UnitPath/UnitPath.gd" id="2_1wdl5"]
 [ext_resource type="Texture2D" uid="uid://bnygpgpdih68r" path="res://assets/iso_cube2.png" id="2_3iw2r"]
 [ext_resource type="Resource" uid="uid://bbiv3kdcfh0yb" path="res://scenes/components/Grid/Grid.tres" id="3_51ea6"]
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lib5r"]
-texture = ExtResource("1_2l8yb")
-texture_region_size = Vector2i(80, 80)
-0:0/0 = 0
-0:0/0/terrain_set = 0
-0:0/0/terrain = 0
-1:0/0 = 0
-1:0/0/terrain_set = 0
-1:0/0/terrain = 0
-2:0/0 = 0
-2:0/0/terrain_set = 0
-2:0/0/terrain = 0
-0:1/0 = 0
-0:1/0/terrain_set = 0
-0:1/0/terrain = 0
-1:1/0 = 0
-1:1/0/terrain_set = 0
-1:1/0/terrain = 0
-2:1/0 = 0
-2:1/0/terrain_set = 0
-2:1/0/terrain = 0
-3:1/0 = 0
-3:1/0/terrain_set = 0
-3:1/0/terrain = 0
-0:2/0 = 0
-0:2/0/terrain_set = 0
-0:2/0/terrain = 0
-1:2/0 = 0
-1:2/0/terrain_set = 0
-1:2/0/terrain = 0
-2:2/0 = 0
-2:2/0/terrain_set = 0
-2:2/0/terrain = 0
-3:2/0 = 0
-3:2/0/terrain_set = 0
-3:2/0/terrain = 0
+[ext_resource type="Texture2D" uid="uid://hrkv0shcmlc5" path="res://assets/iso_cube2_overlay.png" id="3_77k52"]
+[ext_resource type="Texture2D" uid="uid://cl84sic3t2yk1" path="res://assets/iso_cube2_overlay_path.png" id="4_mju1x"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_y8mjw"]
 texture = ExtResource("2_3iw2r")
 texture_region_size = Vector2i(80, 120)
 0:0/0 = 0
 0:0/0/texture_origin = Vector2i(0, 7)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0uxtp"]
+texture = ExtResource("3_77k52")
+texture_region_size = Vector2i(80, 120)
+0:0/0 = 0
+0:0/0/texture_origin = Vector2i(0, 5)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lenma"]
+texture = ExtResource("4_mju1x")
+texture_region_size = Vector2i(80, 120)
+0:0/0 = 0
+0:0/0/texture_origin = Vector2i(0, 5)
 
 [sub_resource type="TileSet" id="TileSet_hsot6"]
 tile_shape = 1
@@ -55,14 +31,14 @@ tile_size = Vector2i(80, 40)
 terrain_set_0/mode = 0
 terrain_set_0/terrain_0/name = "Arrow"
 terrain_set_0/terrain_0/color = Color(0, 0, 1, 1)
-sources/0 = SubResource("TileSetAtlasSource_lib5r")
 sources/1 = SubResource("TileSetAtlasSource_y8mjw")
+sources/2 = SubResource("TileSetAtlasSource_0uxtp")
+sources/3 = SubResource("TileSetAtlasSource_lenma")
 
 [node name="UnitPath" type="TileMap"]
 tile_set = SubResource("TileSet_hsot6")
 format = 2
 layer_0/name = "UnitOverlay"
-layer_0/modulate = Color(0.213693, 0.410763, 0.883516, 1)
 layer_0/y_sort_enabled = true
 layer_0/y_sort_origin = -1
 layer_1/name = "UnitPath"

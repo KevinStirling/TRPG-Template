@@ -4,6 +4,8 @@ class_name Unit
 
 signal walk_finished
 
+enum Team {player, computer}
+
 @onready var _sprite := $PathFollow2D/Sprite
 @onready var _anim_player := $AnimationPlayer
 @onready var _path_follow := $PathFollow2D
@@ -12,6 +14,7 @@ signal walk_finished
 @onready var _unit_path := $"../UnitPath"
 @onready var _move_pattern_map := $MovePattern
 
+@export var current_team : Team
 @export var grid: Resource = preload("res://scenes/components/Grid/Grid.tres")
 @export var move_range := 6
 @export var skin : Texture:

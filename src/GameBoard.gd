@@ -11,6 +11,10 @@ var _units := {}
 var _active_unit : Unit
 var _walkable_cells := []
 
+var _enemy_units := {}
+
+var _turn_manager : TurnManager
+
 func _ready() -> void:
 	_reinitialize()
 	print(_units)
@@ -21,12 +25,18 @@ func is_occupied(cell: Vector2) -> bool:
 func _reinitialize() -> void:
 	_units.clear()
 	
+#	should i the unit collections to the turn manager?
 	for child in get_children():
 		var unit := child as Unit
 		if not unit:
 			continue
-		_units[unit.cell] = unit
-		
+		if unit.current_team == unit.Team.player :
+			_units[unit.cell] = unit
+		else :
+			_enemy_units[unit.cell] = unit
+	
+	_turn_manager = TurnManager.new(_units, _enemy_units)
+	
 func get_walkable_cells(unit: Unit) -> Array :
 	return _flood_fill(_unit_path.local_to_map(unit.position), unit.move_range)
 	
@@ -46,6 +56,7 @@ func _flood_fill(cell: Vector2, max_distance: int) -> Array:
 # Definitely clean this up later this is kinda gross
 		if !_active_unit._move_pattern.is_empty():
 			for c in _active_unit._move_pattern:
+#				why is the position of the pattern being shifted on the y axis?
 				if grid.is_within_bounds(c + current + Vector2(0,1)):
 					array.append(c + current + Vector2(0,1))
 			

@@ -76,6 +76,7 @@ pattern_0 = SubResource("TileMapPattern_0c2gx")
 
 [node name="Unit" type="Path2D"]
 script = ExtResource("1_7mf0w")
+current_team = null
 
 [node name="PathFollow2D" type="PathFollow2D" parent="."]
 rotates = false

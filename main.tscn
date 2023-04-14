@@ -22,25 +22,28 @@ script = ExtResource("2_m2y7v")
 position = Vector2(40, 20)
 
 [node name="Unit" parent="GameBoard" instance=ExtResource("2_0hpix")]
-position = Vector2(680, -60)
+position = Vector2(520, 20)
+current_team = 0
 skin = ExtResource("6_473rs")
 skin_offset = Vector2(0, -18)
 preset_move_pattern = 1
 
 [node name="Unit2" parent="GameBoard" instance=ExtResource("2_0hpix")]
-position = Vector2(440, -20)
+position = Vector2(640, 120)
+current_team = 0
 skin = ExtResource("7_bj15h")
 skin_offset = Vector2(0, -18)
 preset_move_pattern = 2
 
 [node name="Unit3" parent="GameBoard" instance=ExtResource("2_0hpix")]
-position = Vector2(520, 140)
+position = Vector2(960, -40)
+current_team = 0
 move_range = 4
 skin = ExtResource("8_umw2j")
 skin_offset = Vector2(0, -18)
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(640, 40)
+position = Vector2(680, 40)
 zoom = Vector2(0.8, 0.8)
 
 [connection signal="accept_pressed" from="GameBoard/Cursor" to="GameBoard" method="_on_cursor_accept_pressed"]

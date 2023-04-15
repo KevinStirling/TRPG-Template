@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://pkyl27hhew2r"]
+[gd_scene load_steps=10 format=3 uid="uid://pkyl27hhew2r"]
 
 [ext_resource type="PackedScene" uid="uid://dkka3268vckvm" path="res://Map.tscn" id="1_ax6oi"]
 [ext_resource type="PackedScene" uid="uid://itfcpm77u6we" path="res://scenes/components/Unit/Unit.tscn" id="2_0hpix"]
@@ -8,6 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://brkyxtnuha1xt" path="res://assets/pyramid_blue.png" id="6_473rs"]
 [ext_resource type="Texture2D" uid="uid://df6qjj4r56by5" path="res://assets/pyramid_orange.png" id="7_bj15h"]
 [ext_resource type="Texture2D" uid="uid://cy1ejwi3uwia6" path="res://assets/pyramid_purple.png" id="8_umw2j"]
+
+[sub_resource type="Theme" id="Theme_wf8ql"]
 
 [node name="Main" type="Node2D"]
 
@@ -22,22 +24,20 @@ script = ExtResource("2_m2y7v")
 position = Vector2(40, 20)
 
 [node name="Unit" parent="GameBoard" instance=ExtResource("2_0hpix")]
-position = Vector2(520, 20)
-current_team = 0
+position = Vector2(520, 140)
 skin = ExtResource("6_473rs")
 skin_offset = Vector2(0, -18)
 preset_move_pattern = 1
 
 [node name="Unit2" parent="GameBoard" instance=ExtResource("2_0hpix")]
-position = Vector2(640, 120)
-current_team = 0
+position = Vector2(440, -20)
 skin = ExtResource("7_bj15h")
 skin_offset = Vector2(0, -18)
 preset_move_pattern = 2
 
 [node name="Unit3" parent="GameBoard" instance=ExtResource("2_0hpix")]
-position = Vector2(960, -40)
-current_team = 0
+position = Vector2(760, 20)
+current_team = 1
 move_range = 4
 skin = ExtResource("8_umw2j")
 skin_offset = Vector2(0, -18)
@@ -45,6 +45,31 @@ skin_offset = Vector2(0, -18)
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(680, 40)
 zoom = Vector2(0.8, 0.8)
+
+[node name="TurnUI" type="CanvasLayer" parent="."]
+follow_viewport_enabled = true
+
+[node name="Control" type="Control" parent="TurnUI"]
+layout_mode = 3
+anchors_preset = 0
+offset_top = -320.0
+offset_bottom = -320.0
+metadata/_edit_use_anchors_ = true
+
+[node name="TurnTracker" type="VBoxContainer" parent="TurnUI/Control"]
+layout_mode = 1
+offset_right = 200.0
+offset_bottom = 299.0
+
+[node name="Text" type="RichTextLabel" parent="TurnUI/Control/TurnTracker"]
+layout_mode = 2
+size_flags_vertical = 8
+theme = SubResource("Theme_wf8ql")
+fit_content = true
+
+[node name="EndTurnButton" type="Button" parent="TurnUI/Control/TurnTracker"]
+layout_mode = 2
+text = "End Turn"
 
 [connection signal="accept_pressed" from="GameBoard/Cursor" to="GameBoard" method="_on_cursor_accept_pressed"]
 [connection signal="moved" from="GameBoard/Cursor" to="GameBoard" method="_on_cursor_moved"]

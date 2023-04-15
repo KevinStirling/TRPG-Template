@@ -67,15 +67,11 @@ var _is_walking := false :
 		set_process(_is_walking)
 
 var _move_pattern : Array[Vector2]
-#var _move_pattern_list : Dictionary[String]
 
 func _ready() -> void:
 	set_process(false)
 	self.cell = _unit_path.local_to_map(position)
 	position = _unit_path.map_to_local(cell)
-	
-#	for i in _move_pattern_map.get_layers_count():
-#		_move_pattern_list
 	
 	move_pattern_init(_move_pattern_map.get_used_cells(preset_move_pattern))
 	
@@ -88,7 +84,6 @@ func _process(delta) -> void:
 		self._is_walking = false
 		_path_follow.progress = 0.0
 		position = _unit_path.map_to_local(cell)
-		print(cell)
 		curve.clear_points()
 		emit_signal("walk_finished")
 		

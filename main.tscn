@@ -24,19 +24,19 @@ script = ExtResource("2_m2y7v")
 position = Vector2(40, 20)
 
 [node name="Unit" parent="GameBoard" instance=ExtResource("2_0hpix")]
-position = Vector2(480, 0)
+position = Vector2(320, 0)
 skin = ExtResource("6_473rs")
 skin_offset = Vector2(0, -18)
 preset_move_pattern = 1
 
 [node name="Unit2" parent="GameBoard" instance=ExtResource("2_0hpix")]
-position = Vector2(560, 160)
+position = Vector2(720, -40)
 skin = ExtResource("7_bj15h")
 skin_offset = Vector2(0, -18)
 preset_move_pattern = 2
 
 [node name="Unit3" parent="GameBoard" instance=ExtResource("2_0hpix")]
-position = Vector2(800, 0)
+position = Vector2(720, 120)
 current_team = 1
 move_range = 4
 skin = ExtResource("8_umw2j")

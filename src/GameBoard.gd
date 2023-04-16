@@ -21,16 +21,15 @@ func _ready() -> void:
 	Events.turn_ended.connect(func() -> void: 
 		_turn_manager.change_turns(_units if _turn_manager.whos_turn == Unit.Team.computer else _enemy_units)
 	)
-	Events.turn_changed.connect(next_turn)
+	Events.turn_changed.connect(func(team) -> void :
+		if team == Unit.Team.computer :
+			_move_enemy_units()
+	)
 	_end_turn_button.pressed.connect(func() -> void: 
 		_turn_manager.change_turns(_units if _turn_manager.whos_turn == Unit.Team.computer else _enemy_units)
 	)
 	Events.unit_moved.connect(_clear_active_unit)
 	_reinitialize()
-
-func next_turn(team : Unit.Team) -> void:
-	if team == Unit.Team.computer :
-		_move_enemy_units()
 
 func _process(delta):
 	_end_turn_button.visible = true if _turn_manager.whos_turn == Unit.Team.player else false
@@ -139,7 +138,6 @@ func _clear_active_unit() -> void:
 	
 	
 func _move_active_unit(new_cell: Vector2) -> void:
-	print(new_cell)
 	if is_occupied(new_cell) or not new_cell in _walkable_cells:
 		return
 		

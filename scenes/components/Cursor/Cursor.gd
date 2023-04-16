@@ -31,11 +31,11 @@ func _ready():
 
 func _unhandled_input(event: InputEvent):
 	if event is InputEventMouseMotion:
-		if _game_board._turn_manager.whos_turn == Unit.Team.player:
-			self.cell = _unit_path.local_to_map(get_global_mouse_position())
+		self.cell = _unit_path.local_to_map(get_global_mouse_position())
 	elif event.is_action_pressed("click") or event.is_action_pressed("ui_accept"):
-		emit_signal("accept_pressed", cell)
-		get_viewport().set_input_as_handled()
+		if _game_board._turn_manager.whos_turn == Unit.Team.player:
+			emit_signal("accept_pressed", cell)
+			get_viewport().set_input_as_handled()
 	
 	var should_move := event.is_pressed()
 	

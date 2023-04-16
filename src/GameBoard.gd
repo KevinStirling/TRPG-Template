@@ -18,35 +18,30 @@ var _enemy_units := {}
 var _turn_manager : TurnManager
 
 func _ready() -> void:
+	Events.turn_ended.connect(func() -> void: 
+		_turn_manager.change_turns(_units if _turn_manager.whos_turn == Unit.Team.computer else _enemy_units)
+	)
+	Events.turn_changed.connect(next_turn)
+	_end_turn_button.pressed.connect(func() -> void: 
+		_turn_manager.change_turns(_units if _turn_manager.whos_turn == Unit.Team.computer else _enemy_units)
+	)
+	Events.unit_moved.connect(_clear_active_unit)
 	_reinitialize()
-	print(_units)
-	_end_turn_button.connect("pressed", 
-		func(): 
-			_turn_manager.change_turns(_units if _turn_manager.whos_turn == Unit.Team.computer else _enemy_units))
 
-# TODO take the turn management out of the process function, i think its messing with the turn logic
-# instead, use global signals defined in Event.gd 
+func next_turn(team : Unit.Team) -> void:
+	if team == Unit.Team.computer :
+		_move_enemy_units()
+
 func _process(delta):
 	_end_turn_button.visible = true if _turn_manager.whos_turn == Unit.Team.player else false
 	_turn_tracker_text.text = "Your turn" if _turn_manager.whos_turn == Unit.Team.player else "Enemy moving"
-	if _turn_manager.whos_turn == Unit.Team.computer:
-		if _turn_manager.turn_unit_list.size() != 0 :
-			await _move_enemy_units()
-		else:
-			_turn_manager.change_turns(_units)
-	if _turn_manager.turn_unit_list.size() == 0:
-#	START USING EVENTS SIGNALS LIKE THIS TO MANAGE TURNS CHANGNG STATE
-		Events.next_player_turn.emit(_units if _turn_manager.whos_turn == Unit.Team.computer else _enemy_units)
-		_turn_manager.change_turns(_units if _turn_manager.whos_turn == Unit.Team.computer else _enemy_units)
-		
-
+	
 func is_occupied(cell: Vector2) -> bool:
 	return true if _units.has(cell) else false
 
 func _reinitialize() -> void:
 	_units.clear()
 	
-#	should i the unit collections to the turn manager?
 	for child in get_children():
 		var unit := child as Unit
 		if not unit:
@@ -55,7 +50,7 @@ func _reinitialize() -> void:
 			_units[unit.cell] = unit
 		else :
 			_enemy_units[unit.cell] = unit
-	_turn_manager = TurnManager.new(_units, _enemy_units)
+	_turn_manager = TurnManager.new(_units)
 	
 func get_walkable_cells(unit: Unit) -> Array :
 	return _flood_fill(_unit_path.local_to_map(unit.position), unit.move_range)
@@ -108,7 +103,6 @@ func _flood_fill(cell: Vector2, max_distance: int) -> Array:
 
 func _move_enemy_units() -> void:
 	var dest_cell
-#	prevent the moved unit from getting back on the enemy unit list to stop infinite loop
 	for unit in _turn_manager.turn_unit_list:
 		_active_unit = unit
 		_active_unit.is_selected = true
@@ -120,10 +114,7 @@ func _move_enemy_units() -> void:
 		while is_occupied(dest_cell): 
 			dest_cell = _walkable_cells.pick_random()
 		_unit_path.draw(_active_unit.cell, dest_cell)
-#		_unit_path._pathfinder.calculate_point_path(unit.cell, dest_cell)
-#		await get_tree().create_timer(2.0).timeout
 		_move_active_unit(dest_cell)
-		_turn_manager.unit_moved(_active_unit)
 		
 
 func _select_unit(cell: Vector2) -> void:
@@ -162,9 +153,9 @@ func _move_active_unit(new_cell: Vector2) -> void:
 	_deselect_active_unit()
 	_active_unit.walk_along(_unit_path.current_path)
 	await _active_unit.walk_finished
-	_clear_active_unit()
-	
-	
+	_turn_manager.unit_moved(_active_unit)
+#	_clear_active_unit()
+
 
 func _on_cursor_moved(new_cell: Vector2) -> void:
 	if _active_unit and _active_unit.is_selected:
@@ -175,7 +166,6 @@ func _on_cursor_accept_pressed(cell: Vector2) -> void:
 		_select_unit(cell)
 	elif _active_unit.is_selected:
 		_move_active_unit(cell)
-		_turn_manager.unit_moved(_active_unit)
 
 func _unhandled_input(event: InputEvent) -> void:
 	if _active_unit and event.is_action_pressed("ui_cancel"):

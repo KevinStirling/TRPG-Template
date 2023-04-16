@@ -31,7 +31,9 @@ func _ready():
 
 func _unhandled_input(event: InputEvent):
 	if event is InputEventMouseMotion:
-		self.cell = _unit_path.local_to_map(get_global_mouse_position())
+		if grid.is_within_bounds(_unit_path.local_to_map(get_global_mouse_position())):
+			self.cell = _unit_path.local_to_map(get_global_mouse_position())
+
 	elif event.is_action_pressed("click") or event.is_action_pressed("ui_accept"):
 		if _game_board._turn_manager.whos_turn == Unit.Team.player:
 			emit_signal("accept_pressed", cell)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://pkyl27hhew2r"]
+[gd_scene load_steps=13 format=3 uid="uid://pkyl27hhew2r"]
 
 [ext_resource type="PackedScene" uid="uid://dkka3268vckvm" path="res://Map.tscn" id="1_ax6oi"]
 [ext_resource type="PackedScene" uid="uid://itfcpm77u6we" path="res://scenes/components/Unit/Unit.tscn" id="2_0hpix"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://cy1ejwi3uwia6" path="res://assets/pyramid_purple.png" id="8_umw2j"]
 [ext_resource type="Script" path="res://addons/godot-console/scripts/console_container.gd" id="9_7s4ny"]
 [ext_resource type="Theme" uid="uid://bf441ftgppi6q" path="res://assets/themes/console_theme.tres" id="9_uanp5"]
+[ext_resource type="Script" path="res://src/Console.gd" id="9_y8pm0"]
 
 [sub_resource type="Theme" id="Theme_wf8ql"]
 
@@ -27,19 +28,19 @@ position = Vector2(40, 20)
 [node name="UnitPath" parent="GameBoard" instance=ExtResource("4_yur3p")]
 
 [node name="Unit" parent="GameBoard" instance=ExtResource("2_0hpix")]
-position = Vector2(40, 20)
+position = Vector2(400, 0)
 skin = ExtResource("6_473rs")
 skin_offset = Vector2(0, -18)
 preset_move_pattern = 1
 
 [node name="Unit2" parent="GameBoard" instance=ExtResource("2_0hpix")]
-position = Vector2(40, 20)
+position = Vector2(640, 40)
 skin = ExtResource("7_bj15h")
 skin_offset = Vector2(0, -18)
 preset_move_pattern = 2
 
 [node name="Unit3" parent="GameBoard" instance=ExtResource("2_0hpix")]
-position = Vector2(40, 20)
+position = Vector2(640, -120)
 current_team = 1
 move_range = 4
 skin = ExtResource("8_umw2j")
@@ -102,9 +103,11 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.12549, 0.0666667, 0.152941, 1)
 
-[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+[node name="Console" type="CanvasLayer" parent="."]
+visible = false
+script = ExtResource("9_y8pm0")
 
-[node name="Control" type="Control" parent="CanvasLayer2"]
+[node name="Control" type="Control" parent="Console"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -112,7 +115,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ConsoleContainer" type="VBoxContainer" parent="CanvasLayer2/Control"]
+[node name="ConsoleContainer" type="VBoxContainer" parent="Console/Control"]
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0

@@ -19,29 +19,25 @@
 y_sort_enabled = true
 script = ExtResource("2_m2y7v")
 
-[node name="UnitPath" parent="GameBoard" instance=ExtResource("4_yur3p")]
-layer_1/y_sort_enabled = true
-
 [node name="Cursor" parent="GameBoard" instance=ExtResource("3_aqkq1")]
 position = Vector2(40, 20)
 
+[node name="UnitPath" parent="GameBoard" instance=ExtResource("4_yur3p")]
+
 [node name="Unit" parent="GameBoard" instance=ExtResource("2_0hpix")]
-y_sort_enabled = true
-position = Vector2(520, 140)
+position = Vector2(640, 0)
 skin = ExtResource("6_473rs")
 skin_offset = Vector2(0, -18)
 preset_move_pattern = 1
 
 [node name="Unit2" parent="GameBoard" instance=ExtResource("2_0hpix")]
-y_sort_enabled = true
-position = Vector2(440, -20)
+position = Vector2(480, 80)
 skin = ExtResource("7_bj15h")
 skin_offset = Vector2(0, -18)
 preset_move_pattern = 2
 
 [node name="Unit3" parent="GameBoard" instance=ExtResource("2_0hpix")]
-y_sort_enabled = true
-position = Vector2(800, 40)
+position = Vector2(960, 80)
 current_team = 1
 move_range = 4
 skin = ExtResource("8_umw2j")
@@ -56,15 +52,20 @@ follow_viewport_enabled = true
 
 [node name="Control" type="Control" parent="TurnUI"]
 layout_mode = 3
-anchors_preset = 0
-offset_top = -320.0
-offset_bottom = -320.0
-metadata/_edit_use_anchors_ = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="TurnTracker" type="VBoxContainer" parent="TurnUI/Control"]
 layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -299.0
 offset_right = 200.0
-offset_bottom = 299.0
+grow_vertical = 0
 
 [node name="Text" type="RichTextLabel" parent="TurnUI/Control/TurnTracker"]
 layout_mode = 2
@@ -75,6 +76,30 @@ fit_content = true
 [node name="EndTurnButton" type="Button" parent="TurnUI/Control/TurnTracker"]
 layout_mode = 2
 text = "End Turn"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+process_mode = 4
+layer = -1
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+mouse_force_pass_scroll_events = false
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/Control"]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.12549, 0.0666667, 0.152941, 1)
 
 [connection signal="accept_pressed" from="GameBoard/Cursor" to="GameBoard" method="_on_cursor_accept_pressed"]
 [connection signal="moved" from="GameBoard/Cursor" to="GameBoard" method="_on_cursor_moved"]

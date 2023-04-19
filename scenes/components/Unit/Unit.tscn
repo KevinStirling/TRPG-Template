@@ -76,6 +76,7 @@ pattern_0 = SubResource("TileMapPattern_0c2gx")
 
 [node name="Unit" type="Path2D"]
 z_index = 1
+y_sort_enabled = true
 script = ExtResource("1_7mf0w")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="."]

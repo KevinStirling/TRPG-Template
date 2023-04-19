@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://pkyl27hhew2r"]
+[gd_scene load_steps=12 format=3 uid="uid://pkyl27hhew2r"]
 
 [ext_resource type="PackedScene" uid="uid://dkka3268vckvm" path="res://Map.tscn" id="1_ax6oi"]
 [ext_resource type="PackedScene" uid="uid://itfcpm77u6we" path="res://scenes/components/Unit/Unit.tscn" id="2_0hpix"]
@@ -8,6 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://brkyxtnuha1xt" path="res://assets/pyramid_blue.png" id="6_473rs"]
 [ext_resource type="Texture2D" uid="uid://df6qjj4r56by5" path="res://assets/pyramid_orange.png" id="7_bj15h"]
 [ext_resource type="Texture2D" uid="uid://cy1ejwi3uwia6" path="res://assets/pyramid_purple.png" id="8_umw2j"]
+[ext_resource type="Script" path="res://addons/godot-console/scripts/console_container.gd" id="9_7s4ny"]
+[ext_resource type="Theme" uid="uid://bf441ftgppi6q" path="res://assets/themes/console_theme.tres" id="9_uanp5"]
 
 [sub_resource type="Theme" id="Theme_wf8ql"]
 
@@ -99,6 +101,28 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.12549, 0.0666667, 0.152941, 1)
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer2"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ConsoleContainer" type="VBoxContainer" parent="CanvasLayer2/Control"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -35.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("9_uanp5")
+script = ExtResource("9_7s4ny")
 
 [connection signal="accept_pressed" from="GameBoard/Cursor" to="GameBoard" method="_on_cursor_accept_pressed"]
 [connection signal="moved" from="GameBoard/Cursor" to="GameBoard" method="_on_cursor_moved"]

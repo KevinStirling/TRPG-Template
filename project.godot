@@ -18,6 +18,11 @@ config/icon="res://icon.svg"
 [autoload]
 
 Events="*res://Events.gd"
+Console="*res://addons/godot-console/scripts/console.gd"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/godot-console/plugin.cfg")
 
 [input]
 

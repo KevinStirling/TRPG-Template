@@ -110,7 +110,7 @@ func _move_enemy_units() -> void:
 		_unit_path.initialize()
 		
 		dest_cell = _walkable_cells.pick_random()
-		while is_occupied(dest_cell): 
+		while is_occupied(dest_cell) || dest_cell == _active_unit.cell: 
 			dest_cell = _walkable_cells.pick_random()
 		_unit_path.draw(_active_unit.cell, dest_cell)
 		_move_active_unit(dest_cell)
@@ -152,7 +152,6 @@ func _move_active_unit(new_cell: Vector2) -> void:
 	_active_unit.walk_along(_unit_path.current_path)
 	await _active_unit.walk_finished
 	_turn_manager.unit_moved(_active_unit)
-#	_clear_active_unit()
 
 
 func _on_cursor_moved(new_cell: Vector2) -> void:

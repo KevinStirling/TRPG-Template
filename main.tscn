@@ -28,19 +28,19 @@ position = Vector2(40, 20)
 [node name="UnitPath" parent="GameBoard" instance=ExtResource("4_yur3p")]
 
 [node name="Unit" parent="GameBoard" instance=ExtResource("2_0hpix")]
-position = Vector2(400, 0)
+position = Vector2(640, -80)
 skin = ExtResource("6_473rs")
 skin_offset = Vector2(0, -18)
 preset_move_pattern = 1
 
 [node name="Unit2" parent="GameBoard" instance=ExtResource("2_0hpix")]
-position = Vector2(640, 40)
+position = Vector2(800, 40)
 skin = ExtResource("7_bj15h")
 skin_offset = Vector2(0, -18)
 preset_move_pattern = 2
 
 [node name="Unit3" parent="GameBoard" instance=ExtResource("2_0hpix")]
-position = Vector2(640, -120)
+position = Vector2(400, 40)
 current_team = 1
 move_range = 4
 skin = ExtResource("8_umw2j")

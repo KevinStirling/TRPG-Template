@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://bb5snevkd7k8n"]
+[gd_scene load_steps=3 format=3 uid="uid://bb5snevkd7k8n"]
 
 [ext_resource type="Script" path="res://scenes/components/Cursor/Cursor.gd" id="1_qrhs6"]
+[ext_resource type="Texture2D" uid="uid://drnk0tt5ee4xu" path="res://assets/cursor_outline.png" id="2_65fwa"]
 
 [node name="Cursor" type="Node2D"]
 script = ExtResource("1_qrhs6")
@@ -8,3 +9,7 @@ script = ExtResource("1_qrhs6")
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.1
 one_shot = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_65fwa")
+offset = Vector2(0, -6)

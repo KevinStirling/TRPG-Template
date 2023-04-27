@@ -55,6 +55,3 @@ func _unhandled_input(event: InputEvent):
 		self.cell += Vector2i.LEFT
 	elif event.is_action("ui_down"):
 		self.cell += Vector2i.DOWN
-	
-func _draw():
-	draw_rect(Rect2(-grid.cell_size / 2, grid.cell_size), Color.ALICE_BLUE, false, 2.0)

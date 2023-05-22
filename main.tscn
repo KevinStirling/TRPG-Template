@@ -1,6 +1,6 @@
-[gd_scene load_steps=13 format=3 uid="uid://pkyl27hhew2r"]
+[gd_scene load_steps=13 format=3 uid="uid://deebit4d55rdi"]
 
-[ext_resource type="PackedScene" uid="uid://dkka3268vckvm" path="res://Map.tscn" id="1_ax6oi"]
+[ext_resource type="PackedScene" uid="uid://pnv0qyttgpfi" path="res://scenes/Map.tscn" id="1_ax6oi"]
 [ext_resource type="PackedScene" uid="uid://itfcpm77u6we" path="res://scenes/components/Unit/Unit.tscn" id="2_0hpix"]
 [ext_resource type="Script" path="res://src/GameBoard.gd" id="2_m2y7v"]
 [ext_resource type="PackedScene" uid="uid://bb5snevkd7k8n" path="res://scenes/components/Cursor/Cursor.tscn" id="3_aqkq1"]
@@ -28,8 +28,7 @@ position = Vector2(20, 10)
 [node name="UnitPath" parent="GameBoard" instance=ExtResource("4_yur3p")]
 
 [node name="Unit" parent="GameBoard" instance=ExtResource("2_0hpix")]
-position = Vector2(240, 20)
-scale = Vector2(4, 4)
+position = Vector2(20, 10)
 skin = ExtResource("6_27a74")
 skin_offset = Vector2(0, -5)
 
@@ -61,7 +60,7 @@ anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
 offset_right = 200.0
-offset_bottom = 299.0
+offset_bottom = 80.0
 grow_vertical = 0
 
 [node name="Text" type="RichTextLabel" parent="TurnUI/Control/TurnTracker"]

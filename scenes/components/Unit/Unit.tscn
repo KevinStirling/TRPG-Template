@@ -61,7 +61,6 @@ _data = {
 tile_data = PackedInt32Array(196608, 0, 0, 196609, 0, 0, 196610, 0, 0, 3, 0, 0, 65539, 0, 0, 131075, 0, 0, 196611, 0, 0, 262147, 0, 0, 327683, 0, 0, 393219, 0, 0, 196612, 0, 0, 196613, 0, 0, 196614, 0, 0)
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_bhwa4"]
-load_path = "res://.godot/imported/iso_cube2_overlay.png-764e9c6cbb49ae9aa932ee95e818377e.ctex"
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hp2ew"]
 texture = SubResource("CompressedTexture2D_bhwa4")

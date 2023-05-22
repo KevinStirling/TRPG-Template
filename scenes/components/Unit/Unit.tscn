@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" path="res://scenes/components/Unit/Unit.gd" id="1_7mf0w"]
 [ext_resource type="Texture2D" uid="uid://bs41tnjakr1iw" path="res://assets/unit_shadow.svg" id="2_mstlf"]
-[ext_resource type="Texture2D" uid="uid://hrkv0shcmlc5" path="res://assets/iso_cube2_overlay.png" id="3_64lc8"]
 
 [sub_resource type="Animation" id="Animation_hymqh"]
 length = 0.001
@@ -61,8 +60,11 @@ _data = {
 [sub_resource type="TileMapPattern" id="TileMapPattern_0c2gx"]
 tile_data = PackedInt32Array(196608, 0, 0, 196609, 0, 0, 196610, 0, 0, 3, 0, 0, 65539, 0, 0, 131075, 0, 0, 196611, 0, 0, 262147, 0, 0, 327683, 0, 0, 393219, 0, 0, 196612, 0, 0, 196613, 0, 0, 196614, 0, 0)
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_bhwa4"]
+load_path = "res://.godot/imported/iso_cube2_overlay.png-764e9c6cbb49ae9aa932ee95e818377e.ctex"
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hp2ew"]
-texture = ExtResource("3_64lc8")
+texture = SubResource("CompressedTexture2D_bhwa4")
 texture_region_size = Vector2i(80, 120)
 0:0/0 = 0
 0:0/0/texture_origin = Vector2i(0, 7)

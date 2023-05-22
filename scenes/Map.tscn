@@ -1,32 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://dkka3268vckvm"]
+[gd_scene load_steps=6 format=3 uid="uid://pnv0qyttgpfi"]
 
-[ext_resource type="Script" path="res://Map.gd" id="1_q03il"]
-[ext_resource type="Resource" uid="uid://bbiv3kdcfh0yb" path="res://scenes/components/Grid/Grid.tres" id="2_af8lq"]
-[ext_resource type="Texture2D" uid="uid://bnygpgpdih68r" path="res://assets/iso_cube2.png" id="3_deqyk"]
-[ext_resource type="Texture2D" uid="uid://dmhko52lj23oa" path="res://assets/merged_iso_cubes4.png" id="4_b0i1v"]
-[ext_resource type="Texture2D" uid="uid://co0puem54ie0h" path="res://assets/tile_3.png" id="5_b8kwo"]
-[ext_resource type="Texture2D" uid="uid://ci44b5mhnjlfr" path="res://assets/iso_cube_45_merged.png" id="6_viwe6"]
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_63018"]
-texture = ExtResource("3_deqyk")
-texture_region_size = Vector2i(80, 120)
-0:0/0 = 0
-0:0/0/texture_origin = Vector2i(0, 5)
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jnu4j"]
-texture = ExtResource("4_b0i1v")
-texture_region_size = Vector2i(81, 120)
-0:0/0 = 0
-0:0/0/texture_origin = Vector2i(0, 7)
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rwflq"]
-texture = ExtResource("5_b8kwo")
-texture_region_size = Vector2i(64, 52)
-0:0/0 = 0
-0:0/0/texture_origin = Vector2i(62, 47)
+[ext_resource type="Script" path="res://scenes/Map.gd" id="1_hv0dc"]
+[ext_resource type="Resource" uid="uid://bbiv3kdcfh0yb" path="res://scenes/components/Grid/Grid.tres" id="2_25s01"]
+[ext_resource type="Texture2D" uid="uid://ci44b5mhnjlfr" path="res://assets/iso_cube_45_merged.png" id="6_lwnox"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7x42h"]
-texture = ExtResource("6_viwe6")
+texture = ExtResource("6_lwnox")
 texture_region_size = Vector2i(40, 60)
 0:0/0 = 0
 0:0/0/texture_origin = Vector2i(0, 2)
@@ -56,15 +35,12 @@ tile_size = Vector2i(40, 20)
 terrain_set_0/mode = 0
 terrain_set_0/terrain_0/name = "Terrain 0"
 terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
-sources/0 = SubResource("TileSetAtlasSource_63018")
-sources/1 = SubResource("TileSetAtlasSource_jnu4j")
-sources/2 = SubResource("TileSetAtlasSource_rwflq")
 sources/5 = SubResource("TileSetAtlasSource_7x42h")
 tile_proxies/coords_level = [[3, Vector2i(0, 0)], [5, Vector2i(0, 0)], [4, Vector2i(0, 0)], [5, Vector2i(1, 0)]]
 
 [node name="Map" type="Node2D"]
-script = ExtResource("1_q03il")
-grid = ExtResource("2_af8lq")
+script = ExtResource("1_hv0dc")
+grid = ExtResource("2_25s01")
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_p14wl")

@@ -1,16 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://dehvxoecc36hf"]
+[gd_scene load_steps=8 format=3 uid="uid://dehvxoecc36hf"]
 
 [ext_resource type="Script" path="res://scenes/components/UnitPath/UnitPath.gd" id="2_1wdl5"]
-[ext_resource type="Texture2D" uid="uid://bnygpgpdih68r" path="res://assets/iso_cube2.png" id="2_3iw2r"]
 [ext_resource type="Texture2D" uid="uid://8duq7soilwfs" path="res://assets/overlay.png" id="2_t38xh"]
 [ext_resource type="Texture2D" uid="uid://dvi2ybkkvygnl" path="res://assets/outline2.png" id="3_5p75a"]
 [ext_resource type="Resource" uid="uid://bbiv3kdcfh0yb" path="res://scenes/components/Grid/Grid.tres" id="3_51ea6"]
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_y8mjw"]
-texture = ExtResource("2_3iw2r")
-texture_region_size = Vector2i(80, 120)
-0:0/0 = 0
-0:0/0/texture_origin = Vector2i(0, 7)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0uxtp"]
 texture = ExtResource("2_t38xh")
@@ -31,7 +24,6 @@ tile_size = Vector2i(40, 20)
 terrain_set_0/mode = 0
 terrain_set_0/terrain_0/name = "Arrow"
 terrain_set_0/terrain_0/color = Color(0, 0, 1, 1)
-sources/1 = SubResource("TileSetAtlasSource_y8mjw")
 sources/2 = SubResource("TileSetAtlasSource_0uxtp")
 sources/3 = SubResource("TileSetAtlasSource_lenma")
 

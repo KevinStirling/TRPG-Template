@@ -5,7 +5,7 @@
 [ext_resource type="Script" path="res://src/GameBoard.gd" id="2_m2y7v"]
 [ext_resource type="PackedScene" uid="uid://bb5snevkd7k8n" path="res://scenes/components/Cursor/Cursor.tscn" id="3_aqkq1"]
 [ext_resource type="PackedScene" uid="uid://dehvxoecc36hf" path="res://scenes/components/UnitPath/UnitPath.tscn" id="4_yur3p"]
-[ext_resource type="Texture2D" uid="uid://brkyxtnuha1xt" path="res://assets/pyramid_blue.png" id="6_473rs"]
+[ext_resource type="Texture2D" uid="uid://otkpojm34nh6" path="res://assets/pawn_shorte2r.png" id="6_27a74"]
 [ext_resource type="Texture2D" uid="uid://df6qjj4r56by5" path="res://assets/pyramid_orange.png" id="7_bj15h"]
 [ext_resource type="Texture2D" uid="uid://cy1ejwi3uwia6" path="res://assets/pyramid_purple.png" id="8_umw2j"]
 [ext_resource type="Script" path="res://addons/godot-console/scripts/console_container.gd" id="9_7s4ny"]
@@ -23,50 +23,45 @@ y_sort_enabled = true
 script = ExtResource("2_m2y7v")
 
 [node name="Cursor" parent="GameBoard" instance=ExtResource("3_aqkq1")]
-position = Vector2(40, 20)
+position = Vector2(20, 10)
 
 [node name="UnitPath" parent="GameBoard" instance=ExtResource("4_yur3p")]
 
 [node name="Unit" parent="GameBoard" instance=ExtResource("2_0hpix")]
-position = Vector2(640, 0)
-skin = ExtResource("6_473rs")
-skin_offset = Vector2(0, -18)
-preset_move_pattern = 1
+position = Vector2(240, 20)
+scale = Vector2(4, 4)
+skin = ExtResource("6_27a74")
+skin_offset = Vector2(0, -5)
 
 [node name="Unit2" parent="GameBoard" instance=ExtResource("2_0hpix")]
-position = Vector2(400, 0)
+position = Vector2(20, 10)
 skin = ExtResource("7_bj15h")
 skin_offset = Vector2(0, -18)
 preset_move_pattern = 2
 
 [node name="Unit3" parent="GameBoard" instance=ExtResource("2_0hpix")]
-position = Vector2(720, 160)
+position = Vector2(20, 10)
 current_team = 1
 move_range = 4
 skin = ExtResource("8_umw2j")
 skin_offset = Vector2(0, -18)
-
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(680, 40)
-zoom = Vector2(0.8, 0.8)
 
 [node name="TurnUI" type="CanvasLayer" parent="."]
 follow_viewport_enabled = true
 
 [node name="Control" type="Control" parent="TurnUI"]
 layout_mode = 3
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-grow_vertical = 0
+anchors_preset = 0
+offset_top = -160.0
+offset_bottom = -160.0
 
 [node name="TurnTracker" type="VBoxContainer" parent="TurnUI/Control"]
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_top = -299.0
 offset_right = 200.0
+offset_bottom = 299.0
 grow_vertical = 0
 
 [node name="Text" type="RichTextLabel" parent="TurnUI/Control/TurnTracker"]
@@ -78,6 +73,9 @@ fit_content = true
 [node name="EndTurnButton" type="Button" parent="TurnUI/Control/TurnTracker"]
 layout_mode = 2
 text = "End Turn"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(320, 20)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 process_mode = 4

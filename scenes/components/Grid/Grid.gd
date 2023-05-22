@@ -1,9 +1,9 @@
 extends Resource
 class_name Grid
 
-@export var cell_size := Vector2(80, 80)
+@export var cell_size := Vector2(40, 40)
 
-var size := Vector2i(40, 40)
+var size := Vector2i(10, 10)
 var grid_bounds : Array[Vector2i]
 
 var _half_cell_size = cell_size / 2

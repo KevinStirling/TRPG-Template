@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dehvxoecc36hf" path="res://scenes/components/UnitPath/UnitPath.tscn" id="4_yur3p"]
 [ext_resource type="Texture2D" uid="uid://otkpojm34nh6" path="res://assets/pawn_shorte2r.png" id="6_27a74"]
 [ext_resource type="Texture2D" uid="uid://df6qjj4r56by5" path="res://assets/pyramid_orange.png" id="7_bj15h"]
-[ext_resource type="Texture2D" uid="uid://cy1ejwi3uwia6" path="res://assets/pyramid_purple.png" id="8_umw2j"]
+[ext_resource type="Texture2D" uid="uid://gmuf1l8p3lb" path="res://assets/red_crystal_new.png" id="8_lgcgi"]
 [ext_resource type="Script" path="res://addons/godot-console/scripts/console_container.gd" id="9_7s4ny"]
 [ext_resource type="Theme" uid="uid://bf441ftgppi6q" path="res://assets/themes/console_theme.tres" id="9_uanp5"]
 [ext_resource type="Script" path="res://src/Console.gd" id="9_y8pm0"]
@@ -28,7 +28,7 @@ position = Vector2(20, 10)
 [node name="UnitPath" parent="GameBoard" instance=ExtResource("4_yur3p")]
 
 [node name="Unit" parent="GameBoard" instance=ExtResource("2_0hpix")]
-position = Vector2(20, 10)
+position = Vector2(240, 20)
 skin = ExtResource("6_27a74")
 skin_offset = Vector2(0, -5)
 
@@ -39,11 +39,12 @@ skin_offset = Vector2(0, -18)
 preset_move_pattern = 2
 
 [node name="Unit3" parent="GameBoard" instance=ExtResource("2_0hpix")]
-position = Vector2(20, 10)
+position = Vector2(320, 20)
+scale = Vector2(3, 3)
 current_team = 1
 move_range = 4
-skin = ExtResource("8_umw2j")
-skin_offset = Vector2(0, -18)
+skin = ExtResource("8_lgcgi")
+skin_offset = Vector2(0, -1)
 
 [node name="TurnUI" type="CanvasLayer" parent="."]
 follow_viewport_enabled = true
